@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="KitabuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="AuthorId" />
+    </Key>
+    <Property Name="AuthorId" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="AuthorName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="BookId" />
+    </Key>
+    <Property Name="BookId" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="BookName" Type="nvarchar(max)" />
+    <Property Name="Genre" Type="nvarchar(max)" />
+    <Property Name="AuthoName" Type="nvarchar(max)" />
+    <Property Name="PublisherName" Type="nvarchar(max)" />
+    <Property Name="PublishDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="Language" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Edition" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookCost" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoofPages" Type="nchar" MaxLength="10" />
+    <Property Name="BookDesc" Type="nvarchar(max)" />
+    <Property Name="ActualStock" Type="nchar" MaxLength="10" />
+    <Property Name="CurrentStock" Type="nchar" MaxLength="10" />
+    <Property Name="BookImgLink" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Kitabu.dbo.BookIssue' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="BookIssue">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MemberName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookId" Type="nvarchar" MaxLength="50" />
+    <Property Name="BookName" Type="nvarchar(max)" />
+    <Property Name="IssueDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="Duedate" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DOB" Type="nvarchar" MaxLength="50" />
+    <Property Name="Contacts" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pincode" Type="nvarchar" MaxLength="50" />
+    <Property Name="FullAddress" Type="nvarchar(max)" />
+    <Property Name="MemberId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccStatus" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Publisher">
+    <Key>
+      <PropertyRef Name="PublisherId" />
+    </Key>
+    <Property Name="PublisherId" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="PublisherName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="KitabuModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Publisher" EntityType="Self.Publisher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BookIssue" EntityType="Self.BookIssue" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [BookIssue].[MemberId] AS [MemberId], 
+    [BookIssue].[MemberName] AS [MemberName], 
+    [BookIssue].[BookId] AS [BookId], 
+    [BookIssue].[BookName] AS [BookName], 
+    [BookIssue].[IssueDate] AS [IssueDate], 
+    [BookIssue].[Duedate] AS [Duedate]
+    FROM [dbo].[BookIssue] AS [BookIssue]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
