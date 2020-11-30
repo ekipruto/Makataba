@@ -35,12 +35,12 @@ namespace Maktaba
                     {
                         //Response.Write("<script>alert('" + Dr.GetValue(0).ToString() + "');</script>");
                         Session["username"] = Dr.GetValue(0).ToString();
-                        Session["Fullname"] = Dr.GetValue(2).ToString();
+                        Session["Name"] = Dr.GetValue(2).ToString();
                         Session["role"] = "Admin";
                         //Session["Status"] = Dr.GetValue(10).ToString();
 
                     }
-                    Response.Redirect("Home.aspx");
+                    Response.Redirect("Admin.aspx");
                 }
                 else
                 {

@@ -81,9 +81,14 @@
                             </div>
                         </div>
                         <div class="row">
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:KitabuConnectionString2 %>" SelectCommand="SELECT * FROM [Publisher]"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:KitabuConnectionString %>" SelectCommand="SELECT * FROM [Publisher]"></asp:SqlDataSource>
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server"></asp:GridView>
+                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server">
+                                    <Columns>
+                                     <asp:BoundField DataField="PublisherId" HeaderText="Publisher ID" SortExpression="PublisherId"></asp:BoundField>
+                                     <asp:BoundField DataField="PublisherName" HeaderText="Publisher Name" SortExpression="PublisherName"></asp:BoundField>
+                                    </Columns>
+                                </asp:GridView>
                             </div>
                         </div>
                     </div>

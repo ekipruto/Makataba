@@ -219,7 +219,7 @@
                      <div class="col">
                         <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server">
                             <Columns>
-                            <asp:BoundField DataField="book_id" HeaderText="ID" ReadOnly="True" SortExpression="book_id" >
+                            <asp:BoundField DataField="BookId" HeaderText="Book ID" ReadOnly="True" SortExpression="BookId" >
                                  <ControlStyle Font-Bold="True" />
                                  <ItemStyle Font-Bold="True" />
                               </asp:BoundField>

@@ -121,11 +121,12 @@ namespace Maktaba
 
         protected void LkBtnViewbooks_Click(object sender, EventArgs e)
         {
-
+            Response.Write("<script>alert('viewbooks.aspx');</script>");
         }
-
+        //Link to User Profile
         protected void LkBtnHeloUser_Click(object sender, EventArgs e)
         {
+            Response.Write("<script>alert('UserProfile.aspx');</script>"); 
 
         }
     }

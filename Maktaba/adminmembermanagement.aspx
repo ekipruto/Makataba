@@ -133,19 +133,19 @@
                      </div>
                   </div>
                   <div class="row">
-                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:KitabuConnectionString %>" SelectCommand="SELECT * FROM [Members]"></asp:SqlDataSource>
-                     <div class="col">
-                        <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server">
-                            <Columns>
-                                <asp:DynamicField HeaderText="MemberId" />
-                                <asp:DynamicField HeaderText="Name" />
-                                <asp:DynamicField HeaderText="Acc Status" />
-                                <asp:DynamicField HeaderText="Contact" />
-                                <asp:DynamicField HeaderText="Email" />
-                                <asp:DynamicField HeaderText="State" />
-                                <asp:DynamicField HeaderText="City" />
-                            </Columns>
-                         </asp:GridView>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:KitabuConnectionString %>" SelectCommand="SELECT * FROM [Members]"></asp:SqlDataSource>
+                            <div class="col">
+                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server">
+                                    <Columns>
+                                     <asp:BoundField DataField="MemberId" HeaderText="Member ID" SortExpression="MemberId"></asp:BoundField>
+                                     <asp:BoundField DataField="FullName" HeaderText="FullName" SortExpression="FullName"></asp:BoundField>
+                                     <asp:BoundField DataField="AccountStatus" HeaderText="DOB" SortExpression="AccountStatus"></asp:BoundField>
+                                     <asp:BoundField DataField="ContactNo" HeaderText="Contact No" SortExpression="ContactNo"></asp:BoundField>
+                                     <asp:BoundField DataField="Email" HeaderText="Email Address" SortExpression="Email"></asp:BoundField>
+                                     <asp:BoundField DataField="State" HeaderText="State" SortExpression="State"></asp:BoundField>
+                                     <asp:BoundField DataField="City" HeaderText="City" SortExpression="City"></asp:BoundField>
+                                    </Columns>
+                                </asp:GridView>
                      </div>
                   </div>
                </div>
